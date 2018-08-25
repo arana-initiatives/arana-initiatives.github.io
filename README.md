@@ -1,4 +1,4 @@
-### deepvisioncentre.github.io
+# deepvisioncentre.github.io
 
 ## Descriptive website for deep learning project modules composing this tool.
 
@@ -16,7 +16,7 @@ __Note:__
 * Also, comparison between current existing implementations and changes made in project present in this repository.
 * Proposed roadmap future plans to be added soon into this repository.
 
-#### Instruction For Editing the source code
+### Instruction For Editing the source code
 
 * Setup jekyll onto your local machine. Also, install all _bundler_ related dependencies before for _minimal theme_ to work.Copy source code along with it.
 * Open terminal in local website directory. For running jekyll type `bundle exec jekyll serve` and `ctrl+c` to stop it.  
@@ -25,8 +25,8 @@ __Note:__
 
 ---
 
-### Markdown editing help
-#### Check raw code for using these features 
+# Markdown editing help
+## Check raw code for using these features 
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
