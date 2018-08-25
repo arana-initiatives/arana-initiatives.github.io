@@ -1,0 +1,21 @@
+# Build settings
+
+markdown: kramdown
+permalink: pretty
+
+port: 8000
+
+include: ['_includes/work']
+exclude: ['_site']
+
+sass:
+  sass_dir: assets/css
+  style: :nested
+
+theme: jekyll-theme-minimal
+
+title: Deep Vision Centre
+description: Multiple deep learning modules repository for real life use-cases.
+email: ashishrana160796@gmail.com
+logo: /assets/img/DEEPVISION.png
+
