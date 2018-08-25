@@ -51,30 +51,30 @@ dataset. ​ Cons:​ We get 56% and 52% validation accuracy with RGBD and RGB d
 ## References
 
 [1] Caiming Xiong, Stephen Merity, and Richard Socher. Dynamic memory networks for visual and
-textual question answering. arXiv preprint arXiv:1603.01417, 2016.
+textual question answering. arXiv preprint arXiv:1603.01417, 2016.  
 [2] Donahue, J., Hendricks, L.A., Guadarrama, S., et al.: ‘Long-term recurrent convolutional
 networks for visual recognition and description’. IEEE Conf. Computer Vision and Pattern
-Recognition (CVPR), 2015
-[3] GloVe: Global Vectors for Word Representation. ​ https://nlp.stanford.edu/projects/glove/​ .
-[4] ​ https://github.com/machrisaa/tensorflow-vgg?files=1
+Recognition (CVPR), 2015  
+[3] GloVe: Global Vectors for Word Representation. ​ https://nlp.stanford.edu/projects/glove/​ .  
+[4] ​ https://github.com/machrisaa/tensorflow-vgg?files=1  
 [5] Karpathy, A., and Fei-Fei, L.: ‘Deep visual-semantic alignments for generating image
-descriptions’. The IEEE Conf. Computer Vision and Pattern Recognition (CVPR), 2015
+descriptions’. The IEEE Conf. Computer Vision and Pattern Recognition (CVPR), 2015  
 [6] K. Simonyan and A. Zisserman. Very deep convolutional networks for large-scale image
-recognition. arXiv preprint arXiv:1409.1556, 2014.. Szegedy, W. Liu, Y.
+recognition. arXiv preprint arXiv:1409.1556, 2014.. Szegedy, W. Liu, Y.  
 [7] Mansimov, E., Parisotto, E., Ba, J. L., and Salakhutdinov, R. Generating images from captions
-with attention. ICLR, 2016.
+with attention. ICLR, 2016.  
 [8]M. Abadi, A. Agarwal, P. Barham, E. Brevdo, Z. Chen, C. Citro, G. S. Corrado, A. Davis, J. Dean,
 M. Devin, S. Ghemawat, I. Goodfellow, A. Harp, G. Irving, M. Isard, Y. Jia, R. Jozefowicz, L.
 Kaiser, M. Kudlur, J. Levenberg, D. Man ́e, R. Monga, S. Moore, D. Murray, C. Olah, M. Schuster, J.
 Shlens, B. Steiner, I. Sutskever, K. Talwar, P. Tucker, V. Vanhoucke, V. Vasudevan, F. Vi ́egas, O.
 Vinyals, P. Warden, M.Wattenberg, M.Wicke, Y. Yu, and X. Zheng. Tensor-Flow: Large-scale
-machine learning on heterogeneous systems, 2015. Software available from tensorflow.org.
+machine learning on heterogeneous systems, 2015. Software available from tensorflow.org.  
 [9] Scott Reed, Zeynep Akata, Xinchen Yan, Lajanugen Logeswaran Bernt Schiele, Honglak Lee.
-Generative Adversarial Text to Image Synthesis arXiv: 1605.05396v2 [cs.NE] 5 Jun 2016
+Generative Adversarial Text to Image Synthesis arXiv: 1605.05396v2 [cs.NE] 5 Jun 2016  
 [10] Stanislaw Antol, Aishwarya Agrawal, Jiasen Lu, Margaret Mitchell, Dhruv Batra, C. Lawrence
 Zitnick, Devi Parikh, Virginia Tech Microsoft Research, VQA: Visual Question Answering IEEE
-Explore, Year 2015
+Explore, Year 2015  
 [11] Yihui He, Xi’an Jiaotong University, Xi’an, China Estimated Depth Map Helps Image
-Classification, arXiv:1709.07077v1 [cs.CV] 20 Sep 2017
+Classification, arXiv:1709.07077v1 [cs.CV] 20 Sep 2017  
 
 * * *
