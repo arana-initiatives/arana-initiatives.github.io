@@ -205,11 +205,33 @@ question answering objective module.
 question answering visual module.
 QA objective module.
 QA Visual module.                           # upper, lower and camel cases handled.
-visualquestionanswering module              # Space error handling.
+visualquestionanswering module              # Space error handling won't be supported.
 objectivequestionanswering
 ```
 From the above examples similar arguments for test cases can be extended for other modules and for closing these modules in
-their respective independent console.  
+their respective independent console. The variants or use-cases handled with test cases are as follow :
+1. Different arragements or permutations of keywords.
+2. Wrong spelling handling, with module triggering with partial match only.
+3. Case Differences handled. Space/Tab related errors and No newline error handled(_assumption_).
+4. Multiple keywords assigned to modules, for triggering them.
+5. If kwyword string a subarray then also the module gets triggered.
+6. Multiple module triggering is also allowed.
+
+But, still `help prompt` for guidance that the above cases are only handled. Also, cases handled by `help prompt` as follow :
+1. Help keyword anywhere between string as seperate token. Help is given more priority over module triggering keyword. Reason as help regarding keyword might be the main aim at that situation.
+2. Wrong consecutive spelling characters and satisfy all properties of above.
+3. Help keyword (_right or wrongly spelled_) is handled differently than combined with `Help + module keyword/s` in this help of those specified modules will be opened. Either, in that UI or PDF or text file.   
+
+```
+Examples:
+
+Help
+Help with VQA
+Hple me please
+Help with VQA & Captions
+Help now
+```
+
 
 * * *
 
