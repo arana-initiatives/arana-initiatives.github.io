@@ -36,11 +36,12 @@ This website will contain the following content related to project
 # Contents 
   * Complete Working Explained
     * Important Code snippets
-    * Test Cases
   * Design Diagrams
   
   * UI Design
     * Code
+  * Testing Plan
+  
   * Literatue Review
   
   * References, Acknowledgements And Credits
@@ -49,6 +50,8 @@ This website will contain the following content related to project
 
 # Working & Functionality
 
+![Deep learning Software Engineering Cycle](assets/DeepSECycle.png)  
+Diagram representing software engineering practices for deep learning models.
 
 * * *
 
@@ -114,69 +117,106 @@ output.pack()
 tk.mainloop()
 ```
 
-Finally, the UI(_In Progress_) will contain regex pattern matching logic which will trigger on different independent modules in console. Tests for pattern matching logic and final UI demo will be added soon in this site.
+Finally, the UI(_In Progress_) will contain regex pattern matching logic which will trigger on different independent modules in console. Tests for pattern matching logic and final UI demo will be added soon in this site. Another, alternate approach for UI is
+web app approach currently in drawing and design form only.
 
 * * *
 
 # Testing Plan
 
+## Model Testing
+
+We __can't use__ k-fold cross validation and train-test approach in deep learning to evaluate the model. As, deep learning
+models are __stochastic__ in nature. Artificial neural networks use randomness while being fit on a dataset, such as
+random initial weights and random shuffling of data during each training epoch during stochastic gradient descent. It
+may give different predictions and in turn have different overall skill. Our aim has to be minimize this randomness in model.
+```
+# Methods that cannot be used earlier on
+
+# Test and train split
+train, test = split(data)
+model = fit(train.X, train.y)
+predictions = model.predict(test.X)
+skill = compare(test.y, predictions)
+
+# k-fold cross-validation
+
+scores = list()
+for i in k:
+	train, test = split_old(data, i)
+	model = fit(train.X, train.y)
+	predictions = model.predict(test.X)
+	skill = compare(test.y, predictions)
+	scores.append(skill)
+# mean and standard deviations
+mean_skill = sum(scores) / count(scores)
+standard_deviation = sqrt(1/count(scores) * sum( (score - mean_skill)^2 ))
+
+```
+Additional randomness gives more flexibility but makes model less stable i.e. different results when model trained on same data.
+To make robust model must take additional sources of variance into account.  
+
+Fix Randomness seed for every time the model is fit. And then perform evaluation criteria as specified above.  
+
+__Recommended and used__ approach in this project, __Repeated Evaluation Experiment__ repeat stochastic experiments to make
+them more robust to changes. Estimated mean is calculated then, which is also known as __grand mean__. Recommended, to repreat
+the experiments atleast 30 times, as per ideal standards.
+```
+scores = list()
+for i in repeats:
+	run_scores = list()
+	for j in k:
+		train, test = split_old(data, j)
+		model = fit(train.X, train.y)
+		predictions = model.predict(test.X)
+		skill = compare(test.y, predictions)
+		run_scores.append(skill)
+	scores.append(mean(run_scores))
+```
+Standard error for mean model skill, estimated mean of model skill score differs from the unknown actual mean model skill.
+Standard error can be used to calculate confidence interval of mean skill.
+```
+standard_error = standard_deviation / sqrt(count(scores))
+
+interval = standard_error * 1.96
+lower_interval = mean_skill - interval
+upper_interval = mean_skill + interval
+```
+
+
+## UI Testing
+
+For this testing multiple strings containing different keywords with respective queries will be entered to see if
+desired module gets triggered or not with regex pattern matching.   
+```
+Examples for VQA analysis:
+
+Hey, start VQA module.
+Start the visual question answering module.
+Open visaul question answering module.       # even wrong spelling must be handled.
+VQA.
+VQA module.
+Objective question module.
+VQA model.
+Objective answering module.
+Open/Start module 1.
+Open/Start module one.
+question answering objective module.
+question answering visual module.
+QA objective module.
+QA Visual module.                           # upper, lower and camel cases handled.
+visualquestionanswering module              # Space error handling.
+objectivequestionanswering
+```
+From the above examples similar arguments for test cases can be extended for other modules and for closing these modules in
+their respective independent console.  
+
 * * *
 
 # Literature Survey
 
-1. [10] VQA: Visual Question Answering the task of free-form and open-ended Visual Question
-Answering (VQA) is by giving an image and a natural language question about the image, the task is
-to provide an accurate natural language answer ​ Pros: In this paper proposed combining an LSTM for
-the question with a CNN for the image to generate an answer a similar model is evaluated in this
-paper. ​ Cons:​ Accuracy 54.06%
-
-2. [1] Dynamic Memory Networks for Visual and Textual Question Answering We have
-proposed new modules for the DMN framework to achieve strong results without supervision of
-supporting facts. These improvements include the input fusion layer to allow interactions between
-input facts and a novel attention based GRU that allows for logical reasoning over ordered inputs.
-Pros:​ architecture, the dynamic memory network(DMN). ​ Cons: ​ Accuracy 60.4%
-
-3. [9] Generative Adversarial Text to Image Synthesis In this work we are interested in
-translating text in the form of single-sentence human-written descriptions directly into image pixels.
-Pros: develop a novel deep architecture and GAN formulation to effectively bridge these advances in
-text and image modelling, translating visual concepts from characters to pixels. ​ Cons: On Close
-inspection it is clear that the generated scenes are not usually coherent;
-
-4. [11] Estimated Depth Map Helps Image Classification Therefore, we present a way of
-transferring domain knowledge on depth estimation to a separate image classification task over a
-disjoint set of train, and test data. ​ Pros: 2-layer feed-forward neural network yielded a performance
-increase of 4%, when comparing a NN trained on the RGB dataset to the NN trained on the RGBD
-dataset. ​ Cons:​ We get 56% and 52% validation accuracy with RGBD and RGB dataset respectively.
-
 * * *
 
 # References
-
-[1] Caiming Xiong, Stephen Merity, and Richard Socher. Dynamic memory networks for visual and
-textual question answering. arXiv preprint arXiv:1603.01417, 2016.  
-[2] Donahue, J., Hendricks, L.A., Guadarrama, S., et al.: ‘Long-term recurrent convolutional
-networks for visual recognition and description’. IEEE Conf. Computer Vision and Pattern
-Recognition (CVPR), 2015  
-[3] GloVe: Global Vectors for Word Representation. ​ https://nlp.stanford.edu/projects/glove/​ .  
-[4] ​ https://github.com/machrisaa/tensorflow-vgg?files=1  
-[5] Karpathy, A., and Fei-Fei, L.: ‘Deep visual-semantic alignments for generating image
-descriptions’. The IEEE Conf. Computer Vision and Pattern Recognition (CVPR), 2015  
-[6] K. Simonyan and A. Zisserman. Very deep convolutional networks for large-scale image
-recognition. arXiv preprint arXiv:1409.1556, 2014.. Szegedy, W. Liu, Y.  
-[7] Mansimov, E., Parisotto, E., Ba, J. L., and Salakhutdinov, R. Generating images from captions
-with attention. ICLR, 2016.  
-[8]M. Abadi, A. Agarwal, P. Barham, E. Brevdo, Z. Chen, C. Citro, G. S. Corrado, A. Davis, J. Dean,
-M. Devin, S. Ghemawat, I. Goodfellow, A. Harp, G. Irving, M. Isard, Y. Jia, R. Jozefowicz, L.
-Kaiser, M. Kudlur, J. Levenberg, D. Man ́e, R. Monga, S. Moore, D. Murray, C. Olah, M. Schuster, J.
-Shlens, B. Steiner, I. Sutskever, K. Talwar, P. Tucker, V. Vanhoucke, V. Vasudevan, F. Vi ́egas, O.
-Vinyals, P. Warden, M.Wattenberg, M.Wicke, Y. Yu, and X. Zheng. Tensor-Flow: Large-scale
-machine learning on heterogeneous systems, 2015. Software available from tensorflow.org.  
-[9] Scott Reed, Zeynep Akata, Xinchen Yan, Lajanugen Logeswaran Bernt Schiele, Honglak Lee.
-Generative Adversarial Text to Image Synthesis arXiv: 1605.05396v2 [cs.NE] 5 Jun 2016  
-[10] Stanislaw Antol, Aishwarya Agrawal, Jiasen Lu, Margaret Mitchell, Dhruv Batra, C. Lawrence
-Zitnick, Devi Parikh, Virginia Tech Microsoft Research, VQA: Visual Question Answering IEEE
-Explore, Year 2015  
-[11] Yihui He, Xi’an Jiaotong University, Xi’an, China Estimated Depth Map Helps Image
-Classification, arXiv:1709.07077v1 [cs.CV] 20 Sep 2017  
 
 * * *
