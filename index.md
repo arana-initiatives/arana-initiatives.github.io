@@ -41,8 +41,8 @@ This website will contain the following content related to project
   * UI Design & Functionality
     * Code
   * Testing Plan
-  	* Model Testing
-  	* UI Testing
+    * Model Testing
+    * UI Testing
   
 * * *
 
