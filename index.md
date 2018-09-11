@@ -34,17 +34,15 @@ Also, alterative approaches will be explored for implementing these use-cases. A
 This website will contain the following content related to project
 
 # Contents 
-  * Complete Working Explained
-    * Important Code snippets
+  * Methodology
+  
   * Design Diagrams
   
-  * UI Design
+  * UI Design & Functionality
     * Code
   * Testing Plan
-  
-  * Literatue Review
-  
-  * References, Acknowledgements And Credits
+  	* Model Testing
+  	* UI Testing
   
 * * *
 
