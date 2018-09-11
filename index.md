@@ -48,10 +48,21 @@ This website will contain the following content related to project
   
 * * *
 
-# Working & Functionality
+# Methodology
 
-![Deep learning Software Engineering Cycle](assets/DeepSECycle.png)  
-Diagram representing software engineering practices for deep learning models.
+Selection of network model and dataset is required, then check adequate training labels are available. Instead of conventional ML approach of three sets of training, validation and test, changes in model architecture and training time are done to achive performance improvements. A new architecture upon no improvement can be adopted.
+
+Second step is to check against validation set to avoid any ovefitting. Regularization mechanism can be applied on such cases. If no improvements happens and test error stays high in the end trying different architecture until a proper fit will be best option.
+
+![Deep learning Software Engineering Cycle](assets/DeepFlowChart.png)  
+_Diagram representing software practices for deep learning models._
+
+The development process is referred as __software 2.0__ by AI Head of Tesla, where the emphasis is on developing a framework for neural network in which it can learn upon instead on standard SE development processes. Software 1.0 comprising of learning about 1's and 0's where as non-linear functions for learning paves the foundation.
+
+![Neural Network Animation](assets/NeuralAnimation.gif)
+_Feed forward auto encoders in working for learning weights and biases._
+
+Parallel processing on NVIDIA GPUs helps in achieving faster training time to try out more models in given period of time.
 
 * * *
 
@@ -231,14 +242,3 @@ Hple me please
 Help with VQA & Captions
 Help now
 ```
-
-
-* * *
-
-# Literature Survey
-
-* * *
-
-# References
-
-* * *
