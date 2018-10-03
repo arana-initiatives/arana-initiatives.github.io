@@ -5,30 +5,31 @@ layout: default
 # Introduction
 
 
-These repositories contains deep learning modules to perform a POC of a software in progress that will be able to perform all
-image related analysis like VQA, activity classification and depth-map analysis specifically. Also, the queries will be handled by
-a chatbot which can be seperate module on its own. Each and every module also is having a command line interface with independant
-functioning.   
-Ideal functionality for this software is to extract maximum information out of feeded images and its ability to understanding the
+These repositories contains deep learning modules to perform a POC of a software in progress that will be able to perform computer vision analysis like VQA and activity classification. Also, the queries will be handled by a flow-based
+chatbot which can be seperate module on its own. Each and every module also is having a command line interface with independant
+functioning.  
+
+Ideal functionality for this software is to extract maximum information out of input images and its ability to understanding the
 context of queries in more natural language manner. Hence, with that aim in mind the combined software is being developed.  
+
+As a part of this POC two variants of softwares are prepared one a desktop version and another is client-server model. In Desktop GUI,
+a basic flow-based chatbot will handle queries and trigger respective sub-modules. In client-server model test images will be sent via
+website to running server which will then return the results in the form of an email. As, a part of POC this will be done manually.
+Chatbot Integration with website & automatic replies are not in place.
 
 Now carrying on the discussion for specific modules and their functionalities.
 These repositories will contain deep learning projects, with their trained models and all the related files to it for use.
-Toy projects of deep learning is not aim for this repository collection instead projects with some real implications will
-be selected to work with. Other than general information extraction, models are being trained to function around for specific
+Other than general information extraction, models are expected to function around for specific
 use-cases in different domains.
-Also, alternative approaches to deep learning models their efficiency, ease of use and throughput for particular use-case will
-be discussed. Consider, for example a flow based chatbot functioning with mutliple if-else cases but still being able to get the job done. But limited by its inability to handle all the cases in hand. Currently, aim is to restrict ourself to limited four modules only and implement them in different manners,
-study their efficiency with deep learning models. Hopefully, create newer model architecture also as per need.
+
 
 Current use cases under test involves, In Progress:
 
 |   __Modules__               |               __Use Cases__                   |
 |:----------------------------|:----------------------------------------------|
 | __Chatbot__                 | TroubleShooting, Personality, Recruiting      |
-| __VQA__                     | Product, Brand Identification, Recommendation |
-| __Activity Classification__ | Audio and Visual Aid, Education               |
-| __Depth Map Analysis__      | Realtime Audio and Visual Aid                 |
+| __VQA__                     | Product, Object Identification and Visual aid |
+| __Activity Classification__ | Contextual and Visual Aid, Education          |
 
 Also, alterative approaches will be explored for implementing these use-cases. And comparative case-study will be documented.
 This website will contain the following content related to project
