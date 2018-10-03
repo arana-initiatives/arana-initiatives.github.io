@@ -2,8 +2,18 @@
 layout: default
 ---
 
-# Introduction
+# Result Server
 
+Provide Google drive link for images to be tested, resultant zip file will be returned via email back to you. Also, basic details about
+your organization is required.  
+
+No heavy lifting required. Our machines will run the tests for you. Just fill simple form below.  
+
+<a href="form.html"> Fill form with DeepVision Centre </a>
+
+* * *
+
+# Introduction
 
 These repositories contains deep learning modules to perform a POC of a software in progress that will be able to perform computer vision analysis like VQA and activity classification. Also, the queries will be handled by a flow-based
 chatbot which can be seperate module on its own. Each and every module also is having a command line interface with independant
