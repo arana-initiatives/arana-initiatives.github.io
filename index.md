@@ -44,7 +44,8 @@ Current use cases under test involves, In Progress:
 Also, alterative approaches will be explored for implementing these use-cases. And comparative case-study will be documented.
 This website will contain the following content related to project
 
-# Contents 
+# Contents
+
   * Methodology
   
   * Design Diagrams
@@ -54,6 +55,7 @@ This website will contain the following content related to project
   * Testing Plan
     * Model Testing
     * UI Testing
+  * Model Architecture
   
 * * *
 
@@ -207,47 +209,44 @@ upper_interval = mean_skill + interval
 ## UI Testing
 
 For this testing multiple strings containing different keywords with respective queries will be entered to see if
-desired module gets triggered or not with regex pattern matching.   
-```
-Examples for VQA analysis:
-
-Hey, start VQA module.
-Start the visual question answering module.
-Open visaul question answering module.       # even wrong spelling must be handled.
-VQA.
-VQA module.
-Objective question module.
-VQA model.
-Objective answering module.
-Open/Start module 1.
-Open/Start module one.
-question answering objective module.
-question answering visual module.
-QA objective module.
-QA Visual module.                           # upper, lower and camel cases handled.
-visualquestionanswering module              # Space error handling won't be supported.
-objectivequestionanswering
-```
-From the above examples similar arguments for test cases can be extended for other modules and for closing these modules in
-their respective independent console. The variants or use-cases handled with test cases are as follow :
-1. Different arragements or permutations of keywords.
-2. Wrong spelling handling, with module triggering with partial match only.
-3. Case Differences handled. Space/Tab related errors and No newline error handled(_assumption_).
-4. Multiple keywords assigned to modules, for triggering them.
-5. If kwyword string a subarray then also the module gets triggered.
-6. Multiple module triggering is also allowed.
-
-But, still `help prompt` for guidance that the above cases are only handled. Also, cases handled by `help prompt` as follow :
-1. Help keyword anywhere between string as seperate token. Help is given more priority over module triggering keyword. Reason as help regarding keyword might be the main aim at that situation.
-2. Wrong consecutive spelling characters and satisfy all properties of above.
-3. Help keyword (_right or wrongly spelled_) is handled differently than combined with `Help + module keyword/s` in this help of those specified modules will be opened. Either, in that UI or PDF or text file.   
+desired module gets triggered or not with regex pattern matching. Key phrases
+mentioned below, coded in `mainGUI.py` will be analyzed.  
 
 ```
-Examples:
+nlp_chtbt_module_phrases = ['nlp','chatbot','deus','bot','talk','chat','0','zero']
+obj_module_phrases = ['vqa','visual','objective','1','one']
+cntxt_module_phrases = ['context','activity','classification','2','two']
+help_phrases = ['help','hlp','pardon']
 
-Help
-Help with VQA
-Hple me please
-Help with VQA & Captions
-Help now
 ```
+
+Help file will contain instructions for running the models and basic information about the project to get started with.
+
+* * *
+
+# Model Architecture
+
+VGGNet consists of 16 convolutional layers and is very appealing because
+of its very uniform architecture. However, VGGNet consists of 138 million
+parameters takes much longer time to run. Architecture complexity remains
+small.
+
+__Why use convulations layers befor fully connected layer ?__
+
+Imagine an image 224 x 224 x 3 pixels and FC layer as a direct first hidden
+layer with 100,000 perceptrons, the total number of connections will
+be 224*224*3*100000=15,02,800,000 =>15 billion parameters which is
+impossible to process. Convolution and max pooling reduces complexity.
+
+![VGG 16 Model](assets/VGGModel.png)
+_VGG 16 model architecture demystified._
+
+Number of parameters can be calculated either by direct method or
+a layer by layer with model summary.
+
+```
+model.count_params()
+model.summary()
+```
+
+* * *

@@ -7,9 +7,6 @@ Expected Implementation Information to be added by end of this week :
 * NLPChatbot Module.
 * VQA Module.
 * Context Analysis Module.
-* Depth Analysis Module.
-
-__Project Deadline: 15-Sept-2018__
 
 __Note:__
 
