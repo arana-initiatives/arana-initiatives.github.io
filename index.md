@@ -139,8 +139,17 @@ output.pack()
 tk.mainloop()
 ```
 
-Finally, the UI(_In Progress_) will contain regex pattern matching logic which will trigger on different independent modules in console. Tests for pattern matching logic and final UI demo will be added soon in this site. Another, alternate approach for UI is
-web app approach currently in drawing and design form only.
+The UI(_In Progress_) will contain regex pattern matching logic which will trigger on different modules in console as a subprocess.
+
+![GUI Screenshot Of Image](assets/GUI_Screenshot.png)
+_GUI Schreenshot, with basic inroduction._
+
+![GUI Tested with running test scripts](assets/GUI_Working_Test.png)
+_GUI Schreenshot, with basic inroduction._
+
+Along, with this server based approach is explored and implemented.
+With capabilties to upload test images via this website being sent
+onto an email-id for test.
 
 * * *
 
