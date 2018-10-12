@@ -15,17 +15,19 @@ No heavy lifting required. Our machines will run the tests for you. Just fill si
 
 # Introduction
 
-These repositories contains deep learning modules to perform a POC of a software in progress that will be able to perform computer vision analysis like VQA and activity classification. Also, the queries will be handled by a flow-based
-chatbot which can be seperate module on its own. Each and every module also is having a command line interface with independant
-functioning.  
+These repositories contains deep learning modules to perform a POC on providing deep learning as service or software. Exploring
+both these as an alternative for deployment of deep learning models serving as different modules in a package.
+
+Chatbot which can be seperate module on its own will act as helper while using the application either a web-based one or GUI. Each and every module also is having a command line interface with independant functioning.  
 
 Ideal functionality for this software is to extract maximum information out of input images and its ability to understanding the
-context of queries in more natural language manner. Hence, with that aim in mind the combined software is being developed.  
+context of queries in more natural manner. Hence, with that aim in mind the combined software is being developed.  
 
-As a part of this POC two variants of softwares are prepared one a desktop version and another is client-server model. In Desktop GUI,
-a basic flow-based chatbot will handle queries and trigger respective sub-modules. In client-server model test images will be sent via
-website to running server which will then return the results in the form of an email. As, a part of POC this will be done manually.
-Chatbot Integration with website & automatic replies are not in place.
+As a part of this POC two variants are prepared one a desktop version and another is client-server model. In Desktop GUI,
+a basic flow-based chatbot will handle queries and trigger respective sub-modules. In client-server
+model test images will be sent via
+website to running server which will then return the results in the form of an email. As, a part of POC
+this will be done manually. Chatbot Integration with website & automatic replies are not in place.
 
 Now carrying on the discussion for specific modules and their functionalities.
 These repositories will contain deep learning projects, with their trained models and all the related files to it for use.
@@ -37,7 +39,7 @@ Current use cases under test involves, In Progress:
 
 |   __Modules__               |               __Use Cases__                   |
 |:----------------------------|:----------------------------------------------|
-| __Chatbot__                 | TroubleShooting, Personality, Recruiting      |
+| __Chatbot__                 | TroubleShooting, Personality                  |
 | __VQA__                     | Product, Object Identification and Visual aid |
 | __Activity Classification__ | Contextual and Visual Aid, Education          |
 
@@ -139,7 +141,8 @@ output.pack()
 tk.mainloop()
 ```
 
-The UI(_In Progress_) will contain regex pattern matching logic which will trigger on different modules in console as a subprocess.
+The UI will contain regex pattern matching logic which will trigger on different modules in console as a subprocess
+as shown in below screenshot of [mainGUI.py](https://github.com/DeepVisionCentre/DeepVisionTool/blob/master/mainGUI.py) in [DeepVisionTool](https://github.com/DeepVisionCentre/DeepVisionTool) repository.
 
 ![GUI Screenshot Of Image](assets/GUI_Screenshot.png)
 _GUI Schreenshot, with basic inroduction._
@@ -257,5 +260,38 @@ a layer by layer with model summary.
 model.count_params()
 model.summary()
 ```
+
+Here, is a summary of all the parameters with layer wise calculations. Follow along for in-depth analysis.  
+
+|         __Layers__        |         __Memory Taken__         |        __Parameter Calculations__        |
+|:--------------------------|:---------------------------------|:-----------------------------------------|
+|    INPUT: [224x224x3]     |      memory:  224*224*3=150K     |                params: 0                 |
+|  CONV3-64: [224x224x64]   |     memory:  224*224*64=3.2M     |        params: (3*3*3)*64 = 1,728        |
+|  CONV3-64: [224x224x64]   |     memory:  224*224*64=3.2M     |       params: (3*3*64)*64 = 36,864       |
+|   POOL2: [112x112x64]     |     memory:  112*112*64=800K     |                params: 0                 |
+|  CONV3-128: [112x112x128] |    memory:  112*112*128=1.6M     |       params: (3*3*64)*128 = 73,728      |
+|  CONV3-128: [112x112x128] |    memory:  112*112*128=1.6M     |      params: (3*3*128)*128 = 147,456     |
+|   POOL2: [56x56x128]      |     memory:  56*56*128=400K      |                params: 0                 |
+|  CONV3-256: [56x56x256]   |     memory:  56*56*256=800K      |      params: (3*3*128)*256 = 294,912     |
+|  CONV3-256: [56x56x256]   |     memory:  56*56*256=800K      |      params: (3*3*256)*256 = 589,824     |
+|  CONV3-256: [56x56x256]   |     memory:  56*56*256=800K      |      params: (3*3*256)*256 = 589,824     |
+|   POOL2: [28x28x256]      |     memory:  28*28*256=200K      |                params: 0                 |
+|  CONV3-512: [28x28x512]   |     memory:  28*28*512=400K      |     params: (3*3*256)*512 = 1,179,648    |
+|  CONV3-512: [28x28x512]   |     memory:  28*28*512=400K      |     params: (3*3*512)*512 = 2,359,296    |
+|  CONV3-512: [28x28x512]   |     memory:  28*28*512=400K      |     params: (3*3*512)*512 = 2,359,296    |
+|   POOL2: [14x14x512]      |     memory:  14*14*512=100K      |                params: 0                 |
+|  CONV3-512: [14x14x512]   |     memory:  14*14*512=100K      |     params: (3*3*512)*512 = 2,359,296    |
+|  CONV3-512: [14x14x512]   |     memory:  14*14*512=100K      |     params: (3*3*512)*512 = 2,359,296    |
+|  CONV3-512: [14x14x512]   |     memory:  14*14*512=100K      |     params: (3*3*512)*512 = 2,359,296    |
+|   POOL2: [7x7x512]        |     memory:  7*7*512=25K         |                params: 0                 |
+|     FC: [1x1x4096]        |         memory:  4096            |    params: 7*7*512*4096 = 102,760,448    |
+|     FC: [1x1x4096]        |         memory:  4096            |     params: 4096*4096 = 16,777,216       |
+|     FC: [1x1x1000]        |         memory:  1000            |      params: 4096*1000 = 4,096,000       |
+
+`TOTAL memory computations: 24M * 4 bytes ~= 96MB per image`  
+Only forward computations was taken into account above, for backward the size grows approximately by twice per image.  
+`TOTAL params: 138M parameters`  
+Above calculations does gives an idea about complexity of these models and amount of computations required
+for which GPUs are suitable choice instead of good old CPUs.
 
 * * *
