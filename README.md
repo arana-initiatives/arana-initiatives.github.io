@@ -22,6 +22,12 @@ __Note:__
 
 ---
 
+## Contribution Guide: A Must Read
+
+Read [contribution guide](CONTRIBUTING.md) before contributing to these collection of repositories.  
+
+---
+
 # Markdown editing help
 ## Check raw code for using these features 
 
