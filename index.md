@@ -85,13 +85,16 @@ __Current Design Workings:__ In the working of Deep Vision tool the main UI will
 
 ![Actvity Diagram](assets/ActvityDiagram.png)
 
-The flow of main UI is highlighted by this diagram. Along, with encoder-decoder process on a trained dataset with annotations already labelled on them.
+The flow of main UI is highlighted by this diagram. Along, with encoder-decoder process on a trained dataset with annotations already labelled on them.  
 
 ![Component Diagram](assets/ComponentDiagram.png)
 
 This diagram how this software can be divided into different components in terms of functionality and modular nature to achieve
-independent performance. With initial flow based chatbot for querying from the information extraction modules.   
+independent performance. With initial flow based chatbot for querying from the information extraction modules.  
 
+![Tier Architecture](assets/TierDiagram.png)
+
+This diagram explains Client Server architecture which is the final architecture that we have proposed in comparison to event-driven architecture of Python based Desktop GUIs.
 * * *
 
 # UI Design & Functionality
