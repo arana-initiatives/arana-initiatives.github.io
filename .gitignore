@@ -1,3 +1,4 @@
 # exclude site folder
-
 _site
+# exclude .jekyll-cache folder
+.jekyll-cache/
